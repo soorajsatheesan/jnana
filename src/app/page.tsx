@@ -1,134 +1,187 @@
+const S = {
+  display: "var(--font-display, Oswald, sans-serif)",
+  mono: "var(--font-mono, 'IBM Plex Mono', monospace)",
+} as const;
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#fffef5] font-sans text-black">
+    <main
+      style={{
+        background: "#fffcf0",
+        color: "#0a0a0a",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        fontFamily: S.display,
+      }}
+    >
+      {/* Yellow cap */}
+      <div style={{ height: "5px", background: "#ffe600" }} />
+
       {/* Nav */}
-      <header className="border-b-[3px] border-black">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-          <div className="border-[3px] border-black bg-[#ffe500] px-4 py-2 shadow-[4px_4px_0_#000]">
-            <span className="text-base font-black uppercase tracking-tight">JNANA</span>
-          </div>
-          <span className="border-[2px] border-black px-4 py-2 text-xs font-black uppercase tracking-widest text-black/50">
-            Private beta
+      <header style={{ borderBottom: "3px solid #0a0a0a" }}>
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "1.4rem 2.5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: S.display,
+              fontWeight: 700,
+              fontSize: "1.05rem",
+              letterSpacing: "0.38em",
+              textTransform: "uppercase",
+            }}
+          >
+            JNANA
+          </span>
+          <span
+            style={{
+              fontFamily: S.mono,
+              fontWeight: 500,
+              fontSize: "0.72rem",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "rgba(10,10,10,0.45)",
+              border: "2px solid rgba(10,10,10,0.2)",
+              padding: "0.35rem 0.85rem",
+            }}
+          >
+            Private Beta
           </span>
         </div>
       </header>
 
-      {/* Main */}
-      <section className="flex flex-1 items-center border-b-[3px] border-black">
-        <div className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-10">
-          <div className="grid items-center gap-16 lg:grid-cols-[1fr_420px]">
-
-            {/* Left */}
-            <div>
-              <div className="mb-8 inline-block border-[3px] border-black bg-black px-4 py-2 shadow-[4px_4px_0_#ffe500]">
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-[#ffe500]">
-                  Coming soon
-                </span>
-              </div>
-
-              <h1 className="text-[5rem] font-black uppercase leading-[0.85] tracking-tight sm:text-[7rem] lg:text-[8.5rem] xl:text-[10rem]">
-                Know
-                <br />
-                every
-                <br />
-                <span className="inline bg-[#ffe500] px-3 pb-1">thing.</span>
-              </h1>
-
-              <p className="mt-10 max-w-md text-lg font-medium leading-8 text-black/50">
-                Jnana is the operating system for institutional knowledge —
-                retrieval, decision memory, and AI-grounded answers for
-                enterprise teams.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {["Unified search", "Decision memory", "Source trust", "AI answers"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="border-[2px] border-black px-3 py-1.5 text-xs font-black uppercase tracking-widest"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — waitlist */}
-            <div className="border-[3px] border-black bg-white shadow-[8px_8px_0_#000]">
-              <div className="border-b-[3px] border-black bg-[#ffe500] px-6 py-4">
-                <p className="text-sm font-black uppercase tracking-[0.2em]">
-                  Join the waitlist
-                </p>
-              </div>
-
-              <div className="p-6">
-                <p className="text-sm font-medium leading-6 text-black/55">
-                  Be first in line when we open access. No spam — one email when
-                  we launch.
-                </p>
-
-                <form className="mt-6 space-y-4" onSubmit={(e) => e.preventDefault()}>
-                  <div>
-                    <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-black/40">
-                      Work email
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="you@company.com"
-                      className="w-full border-[3px] border-black bg-[#fffef5] px-4 py-3 text-sm font-semibold placeholder:text-black/25 focus:outline-none focus:ring-0"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-black/40">
-                      Company size
-                    </label>
-                    <select className="w-full border-[3px] border-black bg-[#fffef5] px-4 py-3 text-sm font-semibold text-black/60 focus:outline-none">
-                      <option value="">Select range</option>
-                      <option>1–10</option>
-                      <option>11–50</option>
-                      <option>51–200</option>
-                      <option>201–1000</option>
-                      <option>1000+</option>
-                    </select>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full border-[3px] border-black bg-black py-4 text-sm font-black uppercase tracking-widest text-[#ffe500] shadow-[4px_4px_0_#ffe500] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#ffe500]"
-                  >
-                    Notify me →
-                  </button>
-                </form>
-
-                <div className="mt-6 border-t-[2px] border-black pt-5">
-                  <div className="grid grid-cols-3 gap-3 text-center">
-                    {[["500+", "on waitlist"], ["Q3 2025", "target launch"], ["Beta", "invite only"]].map(([n, l]) => (
-                      <div key={l} className="border-[2px] border-black p-3">
-                        <p className="text-lg font-black leading-none">{n}</p>
-                        <p className="mt-1.5 text-[9px] font-black uppercase tracking-widest text-black/40">{l}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Hero */}
+      <section
+        style={{
+          flex: 1,
+          maxWidth: "1200px",
+          width: "100%",
+          margin: "0 auto",
+          padding: "4rem 2.5rem 3.5rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        {/* Coming soon badge */}
+        <div style={{ marginBottom: "2.5rem" }}>
+          <span
+            style={{
+              display: "inline-block",
+              fontFamily: S.mono,
+              fontWeight: 500,
+              fontSize: "0.72rem",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              background: "#0a0a0a",
+              color: "#ffe600",
+              padding: "0.5rem 1rem",
+              boxShadow: "4px 4px 0 #ffe600",
+            }}
+          >
+            Coming Soon
+          </span>
         </div>
+
+        {/* Headline */}
+        <h1
+          style={{
+            fontFamily: S.display,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            lineHeight: 0.9,
+            letterSpacing: "-0.01em",
+            fontSize: "clamp(3.8rem, 7.5vw, 8rem)",
+            marginBottom: "2.75rem",
+          }}
+        >
+          <span style={{ display: "block" }}>Know</span>
+          <span style={{ display: "block" }}>every</span>
+          <span style={{ display: "block" }}>
+            <span
+              style={{
+                background: "#ffe600",
+                padding: "0.02em 0.1em 0.06em",
+                display: "inline-block",
+              }}
+            >
+              thing.
+            </span>
+          </span>
+        </h1>
+
+        {/* Divider */}
+        <div
+          style={{
+            width: "56px",
+            height: "3px",
+            background: "#0a0a0a",
+            marginBottom: "2rem",
+          }}
+        />
+
+        {/* Description */}
+        <p
+          style={{
+            fontFamily: S.mono,
+            fontWeight: 400,
+            fontSize: "clamp(0.88rem, 1.2vw, 1.05rem)",
+            letterSpacing: "0.01em",
+            color: "rgba(10,10,10,0.6)",
+            maxWidth: "480px",
+            lineHeight: 1.8,
+          }}
+        >
+          The operating system for institutional knowledge —
+          retrieval, decision memory, and AI-grounded answers.
+        </p>
       </section>
 
-      {/* Bottom strip */}
-      <footer className="bg-black">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-6 sm:flex-row sm:items-center lg:px-10">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-white/30">
+      {/* Footer */}
+      <footer style={{ borderTop: "3px solid #0a0a0a", background: "#0a0a0a" }}>
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "1.5rem 2.5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "1rem",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: S.mono,
+              fontWeight: 400,
+              fontSize: "0.75rem",
+              letterSpacing: "0.08em",
+              color: "rgba(255,255,255,0.35)",
+            }}
+          >
             Enterprise knowledge, retrieval, and decision memory.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="mailto:hello@jnana.ai" className="text-xs font-black uppercase tracking-widest text-[#ffe500] hover:underline">
-              hello@jnana.ai
-            </a>
-            <a href="#" className="text-xs font-black uppercase tracking-widest text-white/30 hover:text-white/60">
-              Twitter / X
-            </a>
-            <a href="#" className="text-xs font-black uppercase tracking-widest text-white/30 hover:text-white/60">
-              LinkedIn
+          </span>
+          <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+            <a
+              href="mailto:soorajsatheesan4321@gmail.com"
+              style={{
+                fontFamily: S.mono,
+                fontWeight: 500,
+                fontSize: "0.78rem",
+                letterSpacing: "0.08em",
+                color: "#ffe600",
+              }}
+            >
+              soorajsatheesan4321@gmail.com
             </a>
           </div>
         </div>
